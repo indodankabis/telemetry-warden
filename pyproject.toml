@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "telemetry-warden"
+version = "1.0.0"
+description = "Lean, zero-cloud LAN telemetry detector & IoT privacy auditor. Stop data leaks without draining battery."
+readme = "README.md"
+authors = [{ name = "indodankabis" }]
+license = { text = "MIT" }
+requires-python = ">=3.8"
+keywords = ["iot", "privacy", "telemetry", "security", "firewall", "pihole", "iptables", "network-audit"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: System :: Networking :: Monitoring",
+]
+dependencies = []
+
+[project.scripts]
+telemetry-warden = "telemetry_warden.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["telemetry_warden*"]

@@ -1,0 +1,19 @@
+# Telemetry Warden Configuration Example
+# Pure local file. No cloud accounts, no API keys, no tracking.
+
+network:
+  gateway_ip: "192.168.1.1"       # Your router / gateway IP
+  wan_interface: "eth0"           # Router or host external interface
+  subnet_cidr: "192.168.1.0/24"   # Local subnet
+
+daemon:
+  interval_minutes: 60            # Time between passive audit pulses (battery-safe)
+  enable_cryptographic_ledger: true
+  database_path: "telemetry_audit.db"
+
+thresholds:
+  iot_max_outbound_ratio: 0.50    # Flag smart devices sending > 50% traffic to WAN
+  camera_min_lan_ratio: 0.70      # Camera streams must be >= 70% East-West to be verified private
+
+rules_export:
+  default_format: "iptables"      # Options: iptables, nftables, pihole, hosts
